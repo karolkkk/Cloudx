@@ -78,9 +78,18 @@ namespace Microsoft.eShopWeb.Web.Pages.Basket
                     
                     kvpList.Add(new KeyValuePair<string, string>(order.Id.ToString(), json.ToString()));
                 }
-                     
-                
-                new HttpRequestMessage(HttpMethod.Post, "https://cloudxfunctionapp.azurewebsites.net/api/OrderItemsReserver") { Content = new FormUrlEncodedContent(kvpList) };
+
+                using (var client = new HttpClient())
+                {
+                    var content = new StringContent(json, Encoding.UTF8, "application/json");
+                    var result = await client.PostAsync(
+                        "http://localhost:7071/api/Function1", content);
+                }
+                var request = new HttpRequestMessage(HttpMethod.Post, "http://localhost:7071/api/Function1") { Content = new FormUrlEncodedContent(kvpList) };
+                new HttpRequestMessage(HttpMethod.Post, "http://localhost:7071/api/Function1") { Content = new FormUrlEncodedContent(kvpList) };
+
+
+                new HttpRequestMessage(HttpMethod.Post, "https://orderitemsreserver20211128163801.azurewebsites.net/api/SendMessage") { Content = new FormUrlEncodedContent(kvpList) };
 
                 await _basketService.DeleteBasketAsync(BasketModel.Id);             
             }
