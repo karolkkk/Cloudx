@@ -11,6 +11,9 @@
     "appInsights1": {
       "type": "appInsights",
       "connectionId": "APPINSIGHTS_CONNECTIONSTRING"
+    },
+    "apis1": {
+      "type": "apis"
     }
   }
 }
