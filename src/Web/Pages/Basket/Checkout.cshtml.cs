@@ -68,7 +68,7 @@ namespace Microsoft.eShopWeb.Web.Pages.Basket
                 await _basketService.SetQuantities(BasketModel.Id, updateModel);
                var order = await _orderService.CreateOrderAsync(BasketModel.Id, new Address("123 Main St.", "Kent", "OH", "United States", "44240"));
                 var json = JsonConvert.SerializeObject(order);
-                var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(json);
+                /*var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(json);
                 var encoded = Convert.ToBase64String(plainTextBytes);
 
                 List<KeyValuePair<string, string>> kvpList = new List<KeyValuePair<string, string>>();
@@ -77,20 +77,18 @@ namespace Microsoft.eShopWeb.Web.Pages.Basket
                 {
                     
                     kvpList.Add(new KeyValuePair<string, string>(order.Id.ToString(), json.ToString()));
-                }
+                }*/
 
                 using (var client = new HttpClient())
                 {
                     var content = new StringContent(json, Encoding.UTF8, "application/json");
                     var result = await client.PostAsync(
-                        "http://localhost:7071/api/Function1", content);
+                        "https://deliveryorderprocessor20211128125426.azurewebsites.net/api/Function1", content);
+                    var result2 = await client.PostAsync(
+                        "https://orderitemsreserver20211128163801.azurewebsites.net/api/SendMessage", content);
+
                 }
-                var request = new HttpRequestMessage(HttpMethod.Post, "https://deliveryorderprocessor20211128125426.azurewebsites.net/api/Function1") { Content = new FormUrlEncodedContent(kvpList) };
-                new HttpRequestMessage(HttpMethod.Post, "http://localhost:7071/api/Function1") { Content = new FormUrlEncodedContent(kvpList) };
-
-
-                new HttpRequestMessage(HttpMethod.Post, "https://orderitemsreserver20211128163801.azurewebsites.net/api/SendMessage") { Content = new FormUrlEncodedContent(kvpList) };
-
+                
                 await _basketService.DeleteBasketAsync(BasketModel.Id);             
             }
             catch (EmptyBasketOnCheckoutException emptyBasketOnCheckoutException)
