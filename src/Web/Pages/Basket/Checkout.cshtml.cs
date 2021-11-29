@@ -85,7 +85,7 @@ namespace Microsoft.eShopWeb.Web.Pages.Basket
                     var result = await client.PostAsync(
                         "http://localhost:7071/api/Function1", content);
                 }
-                var request = new HttpRequestMessage(HttpMethod.Post, "http://localhost:7071/api/Function1") { Content = new FormUrlEncodedContent(kvpList) };
+                var request = new HttpRequestMessage(HttpMethod.Post, "https://deliveryorderprocessor20211128125426.azurewebsites.net/api/Function1") { Content = new FormUrlEncodedContent(kvpList) };
                 new HttpRequestMessage(HttpMethod.Post, "http://localhost:7071/api/Function1") { Content = new FormUrlEncodedContent(kvpList) };
 
 
