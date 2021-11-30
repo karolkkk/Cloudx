@@ -1,0 +1,14 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "DefaultEndpointsProtocol=https;AccountName=deliveryorderproccessor;AccountKey=xYlAYEpKbUSwHowi/T0gqVfKTgqJVCylF1fLRn2IHb799LrHQeBTdZrl+LcFdrmgL+EUp3QfxqdmxEbnJvSonw==;EndpointSuffix=core.windows.net",
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+    "FUNCTIONS_EXTENSION_VERSION": "~4",
+    "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING": "DefaultEndpointsProtocol=https;AccountName=deliveryorderproccessor;AccountKey=xYlAYEpKbUSwHowi/T0gqVfKTgqJVCylF1fLRn2IHb799LrHQeBTdZrl+LcFdrmgL+EUp3QfxqdmxEbnJvSonw==;EndpointSuffix=core.windows.net",
+    "WEBSITE_CONTENTSHARE": "deliveryorderproccessorbbeea4",
+    "WEBSITE_RUN_FROM_PACKAGE": "1",
+    "APPINSIGHTS_INSTRUMENTATIONKEY": "266067dd-034b-447c-81fa-aa47e394ff20",
+    "AccountEndpoint": "AccountEndpoint=https://cloudx-final-account.documents.azure.com:443/;AccountKey=ACmEf7vEMpf7ykhqMSGkwGoLsXO6CHg6BDB4NQKVCBVxaIXofyAzN7FKaQ5gj5mC8KiRJgSyF2Xms2921yxmaQ==;",
+    //"CosmosDbConnectionString": "mongodb://cosmos-db-coudx-final:n9qJe5wKI2Ixydf9otNaCYB2d3EKvdCtx89gCN9aRaAOJhR5kEYK0r5uNCgddjLXOGWavYwhj1QzBnMOxq4sGg==@cosmos-db-coudx-final.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@cosmos-db-coudx-final@"
+  }
+}
